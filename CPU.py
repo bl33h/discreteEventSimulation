@@ -6,4 +6,8 @@
     #Creacion: 09/03/2022
     #Ultima modificacion: 11/03/2022
 
+# --- Librerias ---
+import random as random;
+import simpy as simp;
 
+#
