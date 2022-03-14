@@ -9,7 +9,6 @@
 # --- Librerias ---
 import random as random;
 import simpy as simp;
-import statistics;
 
 # --- Semilla ---
 RandomSeed = 50; # Valor random de la semilla
