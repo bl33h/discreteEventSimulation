@@ -45,20 +45,20 @@ def process (name, env, memory, cpu, arrival, instructionsq, ramq): # Elementos 
     totalTime += env.now - arrivalTime
     print('Tiempo total %d' % (env.now - arrivalTime)) # Tiempo total en base al arrivalTime.
 
-    # --- Implementacion de la semilla ---
-    random.seed(RandomSeed)
-    env = simp.Environment()  # Se crea el ambiente de simulacion.
-    initialRam = simp.Container(env, 30, init=30)  # Crea el contenedor de la ram.
-    initialCpu = simp.Resource(env, capacity=1)  # Se crea el procesador con capacidad establecida.
-    initialProcess = 50  # Cantidad de procesos a generar.
-    totalTime = 0
+# --- Implementacion de la semilla ---
+random.seed(RandomSeed)
+env = simp.Environment()  # Se crea el ambiente de simulacion.
+initialRam = simp.Container(env, 30, init=30)  # Crea el contenedor de la ram.
+initialCpu = simp.Resource(env, capacity=1)  # Se crea el procesador con capacidad establecida.
+initialProcess = 50  # Cantidad de procesos a generar.
+totalTime = 0
 
-    # --- Parametros de los procesos, instrucciones y el uso de la ram ---
-    for i in range(initialProcess):
-        arrival = 0 # Todos los procesos llegan al mismo tiempo.
-        instructionsq = random.randint(1, 10)  # Cantidad de operaciones por proceso.
-        ramUse = random.randint(1, 10)  # Cantidad de ram que requiere cada proceso.
-        env.process(process('proceso %d' % i, env, initialRam, initialCpu, arrival, instructionsq, ramUse))
+# --- Parametros de los procesos, instrucciones y el uso de la ram ---
+for i in range(initialProcess):
+    arrival = 0 # Todos los procesos llegan al mismo tiempo.
+    instructionsq = random.randint(1, 10)  # Cantidad de operaciones por proceso.
+    ramUse = random.randint(1, 10)  # Cantidad de ram que requiere cada proceso.
+    env.process(process('proceso %d' % i, env, initialRam, initialCpu, arrival, instructionsq, ramUse))
 
     # Se corre la simulacion.
     env.run()
