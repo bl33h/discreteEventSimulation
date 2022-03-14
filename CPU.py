@@ -9,6 +9,7 @@
 # --- Librerias ---
 import random as random;
 import simpy as simp;
+import statistics;
 
 # --- Semilla ---
 RandomSeed = 50; # Valor random de la semilla
@@ -60,8 +61,11 @@ for i in range(initialProcess):
     ramUse = random.randint(1, 10)  # Cantidad de ram que requiere cada proceso.
     env.process(process('proceso %d' % i, env, initialRam, initialCpu, arrival, instructionsq, ramUse)) # Parametros.
 
-    # Se corre la simulacion.
-    env.run()
-    print('\nTiempo promedio %d ' % (totalTime / initialProcess))
+ # Se corre la simulacion.
+env.run()
+print('\nTiempo promedio %d ' % (totalTime / initialProcess)) # Formula de la media.
+global desviacionEstandar
+desviacionEstandar = ((0.5*((totalTime-(totalTime / initialProcess))**2))/initialProcess) # Formula manual para la desviacion estandar.
+print('\nDesviacion estandar %d ' % desviacionEstandar)
 
 
