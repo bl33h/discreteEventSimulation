@@ -58,7 +58,7 @@ def process (name, env, memory, cpu, arrival, instructionsq, ramq): # Elementos 
         arrival = 0 # Todos los procesos llegan al mismo tiempo.
         instructionsq = random.randint(1, 10)  # Cantidad de operaciones por proceso.
         ramUse = random.randint(1, 10)  # Cantidad de ram que requiere cada proceso.
-        env.process(process('proceso %d' % i, env, initialRam, initialCpu, arrival, instructionsq= ramUse))
+        env.process(process('proceso %d' % i, env, initialRam, initialCpu, arrival, instructionsq, ramUse))
 
     # Se corre la simulacion.
     env.run()
