@@ -4,7 +4,7 @@
 #Date: 11/03/2022
 #Version:
     #Creacion: 09/03/2022
-    #Ultima modificacion: 13/03/2022
+    #Ultima modificacion: 14/03/2022
 
 # --- Librerias ---
 import random as random;
@@ -64,7 +64,7 @@ for i in range(initialProcess):
 env.run()
 print('\nTiempo promedio %d ' % (totalTime / initialProcess)) # Formula de la media.
 global desviacionEstandar
-desviacionEstandar = ((0.5*((totalTime-(totalTime / initialProcess))**2))/initialProcess) # Formula manual para la desviacion estandar.
+desviacionEstandar = (((0.5*(((totalTime / initialProcess))**2))/initialProcess)*0.05) # Formula manual para la desviacion estandar.
 print('\nDesviacion estandar %d ' % desviacionEstandar)
 
 
